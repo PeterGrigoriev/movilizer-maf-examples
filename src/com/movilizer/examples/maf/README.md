@@ -1,0 +1,1 @@
+This package aims to demonstrate basic MAF operations in concise Groovy manner.
