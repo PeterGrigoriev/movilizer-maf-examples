@@ -13,12 +13,15 @@ class ExpandoDemo {
         calendar.get(Calendar.YEAR)
     }
 
+    def sayHi = { -> println "Hi! I'm " + name }
+    def getAge = { -> getCurrentYear() - yearOfBirth }
+
     def Person(String name, int yearOfBirth) {
         return new Expando(
                 name: name,
                 yearOfBirth: yearOfBirth,
-                sayHi      : { -> println "Hi! I'm " + name },
-                getAge     : { -> getCurrentYear() - yearOfBirth }
+                sayHi      : sayHi,
+                getAge     : getAge
         );
     }
 
