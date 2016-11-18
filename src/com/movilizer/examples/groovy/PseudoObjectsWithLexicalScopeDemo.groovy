@@ -1,16 +1,13 @@
 package com.movilizer.examples.groovy
-
-import static java.lang.Math.*
-
 /**
  * @author Peter.Grigoriev@movilizer.com.
  */
-class PseudoObjectsDemo {
+class PseudoObjectsWithLexicalScopeDemo {
     static def main(args) {
-        new PseudoObjectsDemo().run()
+        new PseudoObjectsWithLexicalScopeDemo().run()
     }
 
-    static def getCurrentYear = { ->
+    def getCurrentYear = { ->
         Calendar calendar = Calendar.getInstance()
         calendar.setTime(new Date())
         calendar.get(Calendar.YEAR)
