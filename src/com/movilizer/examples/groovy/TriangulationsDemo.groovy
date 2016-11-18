@@ -11,23 +11,23 @@ class TriangulationsDemo {
     }
 
 
-    def GpsCoordinates(double latitude, double longitude) {
+    static def GpsCoordinates(double latitude, double longitude) {
         [
                 latitude    : latitude,
                 longitude   : longitude,
                 distanceFrom: { that ->
                     double R = 6371; // km
-                    double dLat = toRadians(that.latitude - latitude);
-                    double dLon = toRadians(that.longitude - longitude);
-                    double a = sin(dLat / 2) * sin(dLat / 2) +
+                    double radianLatitudeDistance = toRadians(that.latitude - latitude);
+                    double radianLongtitudeDistance = toRadians(that.longitude - longitude);
+                    double a = sin(radianLatitudeDistance / 2) * sin(radianLatitudeDistance / 2) +
                             cos(toRadians(latitude)) * cos(toRadians(that.latitude)) *
-                            sin(dLon / 2) * sin(dLon / 2);
+                            sin(radianLongtitudeDistance / 2) * sin(radianLongtitudeDistance / 2);
                     R * 2 * atan2(sqrt(a), sqrt(1 - a));
                 }
         ];
     }
 
-    def City(String name, coordinates) {
+    static def City(String name, coordinates) {
         [
                 name       : name,
                 coordinates: coordinates,
